@@ -1,0 +1,340 @@
+@import 'dep';
+@import url('https://fonts.googleapis.com/css?family=Roboto:900');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:800');
+
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+    header{
+        padding: 1rem 1rem 0 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;    
+        .title{
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            h1{
+                margin: 0;
+                color: lighten($black, 20%);
+                font-family: 'Open Sans', sans-serif;
+            }
+            .message-con{
+                height: 3rem;
+                width: 3rem;
+                display: flex;
+                border-radius: 50%;
+                align-items: center;
+                justify-content: center;
+                i{
+                    font-size: 1.5rem;
+                    color: darken($white, 30%);
+                }
+                &:hover{
+                    background: darken($white, 2%);
+                }
+            }
+        }
+        .search {
+            margin: 1rem 0;
+            display: flex;
+            align-items: center;
+            .search-bar{
+                flex-grow: 1;
+                box-shadow: 0 3px 25px -5px transparentize($black, 0.8);
+                background: $white;
+                overflow: hidden;
+                border-radius: 5rem;
+                display: flex;
+                margin-right: 1em;
+                i{
+                    margin: auto 1rem;
+                    font-size: 1.3rem;
+                    color: darken($white, 30%);
+                }
+                input[type=text] {
+                    height: 3rem;
+                    border: none;
+                    flex-grow: 1;
+                    outline: none;
+                    font-size: 1.8rem;
+                    color: $theme;
+                }
+            }
+            .layout-btn {
+                height: 3rem;
+                width: 3rem;
+                display: flex;
+                border-radius: 50%;
+                align-items: center;
+                justify-content: center;
+                i{
+                    font-size: 1.5rem;
+                    color: lighten($black, 10%);
+                }
+                &:hover{
+                    background: darken($white, 2%);
+                }
+            }
+        }
+        .chip-con {
+            display: flex;
+            width: 100%;
+            .chip-main{
+                padding: 1em 0;
+                width: 100%;
+                overflow: auto;
+                display: flex;
+                .chip{
+                    padding: 0.5em 1.5em;
+                    font-size: 0.8rem;
+                    color: darken($white, 30%);
+                    border-radius: 5rem;
+                    &:first-of-type{
+                        margin-left: 0;
+                    }
+                    &:last-of-type{
+                        margin-right: 0;
+                    }
+                    &.active{
+    
+                        background: $theme;
+                        color: white;
+                        box-shadow: 0 3px 25px -5px transparentize($theme, 0.5);
+                    }
+                }
+            }
+        }
+    }
+    
+    
+    
+    nav{
+        box-shadow: 0 0 45px -8px transparentize($black, 0.8);
+        display: flex;
+        align-items: center;
+        padding: 0 1em;
+        padding-bottom: 1em;
+        justify-content: space-between;
+        & > div {
+            height: 3rem;
+            width: 3rem;
+            display: flex;
+            border-radius: 50%;
+            align-items: center;
+            justify-content: center;
+            i{
+                font-size: 1.5rem;
+                color: darken($white, 30%);
+            }
+            &.add-btn{
+                height: 4rem;
+                width: 4rem;
+                box-shadow: 0 0 25px -3px transparentize($black, 0.9);
+                padding: 0;
+                margin: 0;
+                transform: translateY(-1rem);
+                background: $theme;
+                i{
+                    color: white;
+                }
+            }
+            &.active{
+                i{
+                    color: $theme;
+                }
+            }
+            &:hover{
+                background: darken($white, 2%);
+            }
+        } 
+    }
+    main{
+        flex-grow: 1;
+        display: flex;
+        width: 100vw;
+        overflow: hidden;
+        flex-direction: column;
+        .card-overflow {
+            padding: 0 1rem 1rem 1rem;
+            margin-right: -1rem;
+            flex-grow: 1;
+            display: flex;
+            overflow-x: auto;   
+            .card-con{
+                width: fit-content;
+                flex-direction: row;
+                display: flex;
+                .card{
+                    margin: 0 1rem 1rem 0;
+                    display: flex;
+                    justify-content: flex-end;
+                    flex-direction: column;
+                    width: 80vw;
+                    .img-con{
+                        border-radius: $radius;
+                        position: absolute;
+                        top: 0;
+                        bottom: 30%;
+                        left: 0%;
+                        right: 0%;
+                        background-position: center;
+                        background-repeat: no-repeat;
+                        background-size: cover;
+                    }
+                    .details-con{
+                        border-radius: $radius;
+                        overflow: hidden;
+                        width: 90%;
+                        margin: 0 auto;
+                        background: white;
+                        box-shadow: 0 0 28px -2px transparentize($black, 0.9);
+                        display: flex;
+                        flex-direction: column;
+                        padding: 1rem;
+                        .head {
+                            display: flex;
+                            .title{
+                                flex-grow: 1;
+                                h6{
+                                    color: lighten($black, 20%);
+                                    margin: 0;
+                                    font-size: 1.3rem;
+                                }
+                                & > div{
+                                    margin: 0.5em 0;
+                                    display: flex;
+                                    font-size: 0.7rem;
+                                    color: darken($white, 30%);
+                                    i{
+    
+                                    }
+                                    p{
+                                        font-weight: bold;
+                                        text-transform: uppercase;
+                                        margin: 0 0.5em;
+                                    }
+                                }
+                            }
+                            .fvrt-con{
+                                margin-right: -0.5rem;
+                                margin-top: -0.5rem;
+                                height: 2.5rem;
+                                width: 2.5rem;
+                                display: flex;
+                                border-radius: 50%;
+                                align-items: center;
+                                justify-content: center;
+                                transition: all 0.3s ease-in-out;
+                                i{
+                                    font-size: 1.2rem;
+                                    color: darken($white, 30%);
+                                    transition: all 0.3s ease-in-out;
+                                }
+                                &:hover{
+                                    background: darken($white, 2%);
+                                }
+                                &.active{
+                                    i{
+                                        color: $red;
+                                    }
+                                }
+                            }
+                        }
+                        .body{
+                            .rating {
+                                color: darken($white, 30%);
+                                display: flex;
+                                align-items: center;
+                                .star-con{
+                                    i{
+                                        &.fas{
+                                            color: $yellow;
+                                        }
+                                        &.far{
+                                        }
+                                    }
+                                }
+                                .rate-num{
+                                    margin: 0 0.5em;
+                                    span{   
+                                        color: lighten($black, 20%);
+                                        font-weight: bold;
+                                    }
+                                }
+                            }
+                            .detail{
+                                p{
+                                    color: darken($white, 30%);
+                                    margin: 0.5rem 0;
+                                    font-size: 0.95rem;
+                                }
+                            }
+                        }
+                        .foot{
+                            margin-top: 0.5em;
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+                            .users-review {
+                                display: flex;
+                                align-items: center;
+                                .users-main{
+                                    display: flex;
+                                    align-items: center;
+                                    .user {
+                                        border: 2px solid white;
+                                        height: 1.5rem;
+                                        width: 1.5rem;
+                                        background-position: center;
+                                        background-repeat: no-repeat;
+                                        background-size: cover;
+                                        border-radius: 50%;
+                                        margin-left: -0.5em;
+                                        &:first-of-type{
+                                            margin-left: initial;
+                                        }
+                                    }
+                                }
+                                .review-num {
+                                    color: darken($white, 30%);
+                                    display: flex;
+                                    font-size: 0.9rem;
+                                    span{
+                                        margin-left: 0.2em;
+                                        &:first-of-type{
+                                            margin-left: 0.5em;
+                                        }
+                                    }   
+                                }
+                            }
+                            .options {
+                                color: lighten($black, 20%);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .indicator-con {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 1em 0;
+            .indicator {
+                height: 0.5rem;
+                width: 0.5rem;
+                margin: 0 0.2rem;
+                background: darken($white, 30%);
+                border-radius: 50%;
+                &.active {
+                    background: $theme;
+                    box-shadow: 0 3px 25px -5px transparentize($theme, 0.5);
+                }
+            }
+        }
+    }
+}

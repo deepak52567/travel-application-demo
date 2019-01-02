@@ -7,11 +7,14 @@ body{
     flex-direction: column;
     justify-content: space-between;
     height: 100vh;
+    overflow: hidden;
     header{
+        position: relative;
         padding: 1rem 1rem 0 1rem;
         display: flex;
         flex-direction: column;
-        justify-content: space-around;    
+        justify-content: space-around;   
+        transition: all 0.3s ease-in-out; 
         .title{
             width: 100%;
             display: flex;
@@ -113,12 +116,20 @@ body{
     
     
     nav{
+        transition: all 0.3s ease-in-out;
         box-shadow: 0 0 45px -8px transparentize($black, 0.8);
         display: flex;
         align-items: center;
         padding: 0 1em;
         padding-bottom: 1em;
         justify-content: space-between;
+        &.down{
+            & > div {
+                &.add-btn {
+                    transform: translateY(0);
+                }
+            }
+        }
         & > div {
             height: 3rem;
             width: 3rem;
@@ -138,6 +149,7 @@ body{
                 margin: 0;
                 transform: translateY(-1rem);
                 background: $theme;
+                transition: all 0.3s ease-in-out;
                 i{
                     color: white;
                 }
@@ -163,17 +175,44 @@ body{
             margin-right: -1rem;
             flex-grow: 1;
             display: flex;
-            overflow-x: auto;   
+            transition: all 0.3s ease-in-out;
+            overflow-x: auto;
             .card-con{
                 width: fit-content;
                 flex-direction: row;
                 display: flex;
-                .card{
+                transition: all 0.3s ease-in-out;
+                .item-card{
+                    transition: all 0.4s ease-in-out;
+                    cursor: pointer;
                     margin: 0 1rem 1rem 0;
                     display: flex;
                     justify-content: flex-end;
                     flex-direction: column;
                     width: 80vw;
+                    .card-close-btn{
+                        position: absolute;
+                        top: 1rem;
+                        right: 1rem;
+                        height: 2.5rem;
+                        width: 2.5rem;
+                        border-radius: 50%;
+                        background: transparentize($white, 0.8);
+                        color: white;
+                        display: none;
+                        z-index: 1;
+                        opacity: 0;
+                        transition: all 0.3s ease-in-out 1s;
+                        align-items: center;
+                        justify-content: center;
+                        i{
+                            font-size: 1.3rem;
+                        }
+                        &.hover{
+                            background: transparentize($theme, 0.8);
+                            color: $theme;
+                        }
+                    }
                     .img-con{
                         border-radius: $radius;
                         position: absolute;
@@ -184,8 +223,10 @@ body{
                         background-position: center;
                         background-repeat: no-repeat;
                         background-size: cover;
+                        transition: all 0.8s ease-in-out;
                     }
                     .details-con{
+                        transition: all 0.8s ease-in-out 0.1s;
                         border-radius: $radius;
                         overflow: hidden;
                         width: 90%;
@@ -333,6 +374,37 @@ body{
                 &.active {
                     background: $theme;
                     box-shadow: 0 3px 25px -5px transparentize($theme, 0.5);
+                }
+            }
+        }
+        &.active {
+            .card-overflow{
+                padding: 0;
+                .card-con {
+                    .item-card{
+                        display: none;
+                        &.active{
+                            display: flex;
+                            width: 100vw;
+                            margin: 0;
+                            .card-close-btn{
+                                display: flex;
+                                opacity: 1;
+                            }
+                            .img-con{
+                                bottom: 50%;
+                                transition: all 0.8s ease-in-out 0.1s;        
+                            }
+                            .details-con{
+                                height: 60%;
+                                border-radius: 0;
+                                border-top-left-radius: 2 * $radius;
+                                border-top-right-radius: 2 * $radius;
+                                width: 100%;                    
+                                transition: all 0.8s ease-in-out;
+                            }
+                        }
+                    }
                 }
             }
         }

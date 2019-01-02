@@ -6447,8 +6447,10 @@ body {
   -webkit-justify-content: space-between;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  height: 100vh; }
+  height: 100vh;
+  overflow: hidden; }
   body header {
+    position: relative;
     padding: 1rem 1rem 0 1rem;
     display: -webkit-box;
     display: -webkit-flex;
@@ -6461,7 +6463,10 @@ body {
             flex-direction: column;
     -webkit-justify-content: space-around;
         -ms-flex-pack: distribute;
-            justify-content: space-around; }
+            justify-content: space-around;
+    -webkit-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out; }
     body header .title {
       width: 100%;
       display: -webkit-box;
@@ -6594,6 +6599,9 @@ body {
             -webkit-box-shadow: 0 3px 25px -5px rgba(3, 169, 244, 0.5);
                     box-shadow: 0 3px 25px -5px rgba(3, 169, 244, 0.5); }
   body nav {
+    -webkit-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
     -webkit-box-shadow: 0 0 45px -8px rgba(0, 0, 0, 0.2);
             box-shadow: 0 0 45px -8px rgba(0, 0, 0, 0.2);
     display: -webkit-box;
@@ -6610,6 +6618,10 @@ body {
     -webkit-justify-content: space-between;
         -ms-flex-pack: justify;
             justify-content: space-between; }
+    body nav.down > div.add-btn {
+      -webkit-transform: translateY(0);
+          -ms-transform: translateY(0);
+              transform: translateY(0); }
     body nav > div {
       height: 3rem;
       width: 3rem;
@@ -6640,7 +6652,10 @@ body {
         -webkit-transform: translateY(-1rem);
             -ms-transform: translateY(-1rem);
                 transform: translateY(-1rem);
-        background: #03A9F4; }
+        background: #03A9F4;
+        -webkit-transition: all 0.3s ease-in-out;
+        -o-transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out; }
         body nav > div.add-btn i {
           color: white; }
       body nav > div.active i {
@@ -6674,6 +6689,9 @@ body {
       display: -webkit-flex;
       display: -ms-flexbox;
       display: flex;
+      -webkit-transition: all 0.3s ease-in-out;
+      -o-transition: all 0.3s ease-in-out;
+      transition: all 0.3s ease-in-out;
       overflow-x: auto; }
       body main .card-overflow .card-con {
         width: -webkit-fit-content;
@@ -6687,8 +6705,15 @@ body {
         display: -webkit-box;
         display: -webkit-flex;
         display: -ms-flexbox;
-        display: flex; }
-        body main .card-overflow .card-con .card {
+        display: flex;
+        -webkit-transition: all 0.3s ease-in-out;
+        -o-transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out; }
+        body main .card-overflow .card-con .item-card {
+          -webkit-transition: all 0.4s ease-in-out;
+          -o-transition: all 0.4s ease-in-out;
+          transition: all 0.4s ease-in-out;
+          cursor: pointer;
           margin: 0 1rem 1rem 0;
           display: -webkit-box;
           display: -webkit-flex;
@@ -6704,7 +6729,36 @@ body {
               -ms-flex-direction: column;
                   flex-direction: column;
           width: 80vw; }
-          body main .card-overflow .card-con .card .img-con {
+          body main .card-overflow .card-con .item-card .card-close-btn {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            height: 2.5rem;
+            width: 2.5rem;
+            -webkit-border-radius: 50%;
+                    border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            display: none;
+            z-index: 1;
+            opacity: 0;
+            -webkit-transition: all 0.3s ease-in-out 1s;
+            -o-transition: all 0.3s ease-in-out 1s;
+            transition: all 0.3s ease-in-out 1s;
+            -webkit-box-align: center;
+            -webkit-align-items: center;
+                -ms-flex-align: center;
+                    align-items: center;
+            -webkit-box-pack: center;
+            -webkit-justify-content: center;
+                -ms-flex-pack: center;
+                    justify-content: center; }
+            body main .card-overflow .card-con .item-card .card-close-btn i {
+              font-size: 1.3rem; }
+            body main .card-overflow .card-con .item-card .card-close-btn.hover {
+              background: rgba(3, 169, 244, 0.2);
+              color: #03A9F4; }
+          body main .card-overflow .card-con .item-card .img-con {
             -webkit-border-radius: 6px;
                     border-radius: 6px;
             position: absolute;
@@ -6715,8 +6769,14 @@ body {
             background-position: center;
             background-repeat: no-repeat;
             -webkit-background-size: cover;
-                    background-size: cover; }
-          body main .card-overflow .card-con .card .details-con {
+                    background-size: cover;
+            -webkit-transition: all 0.8s ease-in-out;
+            -o-transition: all 0.8s ease-in-out;
+            transition: all 0.8s ease-in-out; }
+          body main .card-overflow .card-con .item-card .details-con {
+            -webkit-transition: all 0.8s ease-in-out 0.1s;
+            -o-transition: all 0.8s ease-in-out 0.1s;
+            transition: all 0.8s ease-in-out 0.1s;
             -webkit-border-radius: 6px;
                     border-radius: 6px;
             overflow: hidden;
@@ -6735,21 +6795,21 @@ body {
                 -ms-flex-direction: column;
                     flex-direction: column;
             padding: 1rem; }
-            body main .card-overflow .card-con .card .details-con .head {
+            body main .card-overflow .card-con .item-card .details-con .head {
               display: -webkit-box;
               display: -webkit-flex;
               display: -ms-flexbox;
               display: flex; }
-              body main .card-overflow .card-con .card .details-con .head .title {
+              body main .card-overflow .card-con .item-card .details-con .head .title {
                 -webkit-box-flex: 1;
                 -webkit-flex-grow: 1;
                     -ms-flex-positive: 1;
                         flex-grow: 1; }
-                body main .card-overflow .card-con .card .details-con .head .title h6 {
+                body main .card-overflow .card-con .item-card .details-con .head .title h6 {
                   color: #333333;
                   margin: 0;
                   font-size: 1.3rem; }
-                body main .card-overflow .card-con .card .details-con .head .title > div {
+                body main .card-overflow .card-con .item-card .details-con .head .title > div {
                   margin: 0.5em 0;
                   display: -webkit-box;
                   display: -webkit-flex;
@@ -6757,11 +6817,11 @@ body {
                   display: flex;
                   font-size: 0.7rem;
                   color: #b3b3b3; }
-                  body main .card-overflow .card-con .card .details-con .head .title > div p {
+                  body main .card-overflow .card-con .item-card .details-con .head .title > div p {
                     font-weight: bold;
                     text-transform: uppercase;
                     margin: 0 0.5em; }
-              body main .card-overflow .card-con .card .details-con .head .fvrt-con {
+              body main .card-overflow .card-con .item-card .details-con .head .fvrt-con {
                 margin-right: -0.5rem;
                 margin-top: -0.5rem;
                 height: 2.5rem;
@@ -6783,17 +6843,17 @@ body {
                 -webkit-transition: all 0.3s ease-in-out;
                 -o-transition: all 0.3s ease-in-out;
                 transition: all 0.3s ease-in-out; }
-                body main .card-overflow .card-con .card .details-con .head .fvrt-con i {
+                body main .card-overflow .card-con .item-card .details-con .head .fvrt-con i {
                   font-size: 1.2rem;
                   color: #b3b3b3;
                   -webkit-transition: all 0.3s ease-in-out;
                   -o-transition: all 0.3s ease-in-out;
                   transition: all 0.3s ease-in-out; }
-                body main .card-overflow .card-con .card .details-con .head .fvrt-con:hover {
+                body main .card-overflow .card-con .item-card .details-con .head .fvrt-con:hover {
                   background: #fafafa; }
-                body main .card-overflow .card-con .card .details-con .head .fvrt-con.active i {
+                body main .card-overflow .card-con .item-card .details-con .head .fvrt-con.active i {
                   color: #f44336; }
-            body main .card-overflow .card-con .card .details-con .body .rating {
+            body main .card-overflow .card-con .item-card .details-con .body .rating {
               color: #b3b3b3;
               display: -webkit-box;
               display: -webkit-flex;
@@ -6803,18 +6863,18 @@ body {
               -webkit-align-items: center;
                   -ms-flex-align: center;
                       align-items: center; }
-              body main .card-overflow .card-con .card .details-con .body .rating .star-con i.fas {
+              body main .card-overflow .card-con .item-card .details-con .body .rating .star-con i.fas {
                 color: #fdd835; }
-              body main .card-overflow .card-con .card .details-con .body .rating .rate-num {
+              body main .card-overflow .card-con .item-card .details-con .body .rating .rate-num {
                 margin: 0 0.5em; }
-                body main .card-overflow .card-con .card .details-con .body .rating .rate-num span {
+                body main .card-overflow .card-con .item-card .details-con .body .rating .rate-num span {
                   color: #333333;
                   font-weight: bold; }
-            body main .card-overflow .card-con .card .details-con .body .detail p {
+            body main .card-overflow .card-con .item-card .details-con .body .detail p {
               color: #b3b3b3;
               margin: 0.5rem 0;
               font-size: 0.95rem; }
-            body main .card-overflow .card-con .card .details-con .foot {
+            body main .card-overflow .card-con .item-card .details-con .foot {
               margin-top: 0.5em;
               display: -webkit-box;
               display: -webkit-flex;
@@ -6828,7 +6888,7 @@ body {
               -webkit-align-items: center;
                   -ms-flex-align: center;
                       align-items: center; }
-              body main .card-overflow .card-con .card .details-con .foot .users-review {
+              body main .card-overflow .card-con .item-card .details-con .foot .users-review {
                 display: -webkit-box;
                 display: -webkit-flex;
                 display: -ms-flexbox;
@@ -6837,7 +6897,7 @@ body {
                 -webkit-align-items: center;
                     -ms-flex-align: center;
                         align-items: center; }
-                body main .card-overflow .card-con .card .details-con .foot .users-review .users-main {
+                body main .card-overflow .card-con .item-card .details-con .foot .users-review .users-main {
                   display: -webkit-box;
                   display: -webkit-flex;
                   display: -ms-flexbox;
@@ -6846,7 +6906,7 @@ body {
                   -webkit-align-items: center;
                       -ms-flex-align: center;
                           align-items: center; }
-                  body main .card-overflow .card-con .card .details-con .foot .users-review .users-main .user {
+                  body main .card-overflow .card-con .item-card .details-con .foot .users-review .users-main .user {
                     border: 2px solid white;
                     height: 1.5rem;
                     width: 1.5rem;
@@ -6857,20 +6917,20 @@ body {
                     -webkit-border-radius: 50%;
                             border-radius: 50%;
                     margin-left: -0.5em; }
-                    body main .card-overflow .card-con .card .details-con .foot .users-review .users-main .user:first-of-type {
+                    body main .card-overflow .card-con .item-card .details-con .foot .users-review .users-main .user:first-of-type {
                       margin-left: initial; }
-                body main .card-overflow .card-con .card .details-con .foot .users-review .review-num {
+                body main .card-overflow .card-con .item-card .details-con .foot .users-review .review-num {
                   color: #b3b3b3;
                   display: -webkit-box;
                   display: -webkit-flex;
                   display: -ms-flexbox;
                   display: flex;
                   font-size: 0.9rem; }
-                  body main .card-overflow .card-con .card .details-con .foot .users-review .review-num span {
+                  body main .card-overflow .card-con .item-card .details-con .foot .users-review .review-num span {
                     margin-left: 0.2em; }
-                    body main .card-overflow .card-con .card .details-con .foot .users-review .review-num span:first-of-type {
+                    body main .card-overflow .card-con .item-card .details-con .foot .users-review .review-num span:first-of-type {
                       margin-left: 0.5em; }
-              body main .card-overflow .card-con .card .details-con .foot .options {
+              body main .card-overflow .card-con .item-card .details-con .foot .options {
                 color: #333333; }
     body main .indicator-con {
       display: -webkit-box;
@@ -6897,3 +6957,37 @@ body {
           background: #03A9F4;
           -webkit-box-shadow: 0 3px 25px -5px rgba(3, 169, 244, 0.5);
                   box-shadow: 0 3px 25px -5px rgba(3, 169, 244, 0.5); }
+    body main.active .card-overflow {
+      padding: 0; }
+      body main.active .card-overflow .card-con .item-card {
+        display: none; }
+        body main.active .card-overflow .card-con .item-card.active {
+          display: -webkit-box;
+          display: -webkit-flex;
+          display: -ms-flexbox;
+          display: flex;
+          width: 100vw;
+          margin: 0; }
+          body main.active .card-overflow .card-con .item-card.active .card-close-btn {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            opacity: 1; }
+          body main.active .card-overflow .card-con .item-card.active .img-con {
+            bottom: 50%;
+            -webkit-transition: all 0.8s ease-in-out 0.1s;
+            -o-transition: all 0.8s ease-in-out 0.1s;
+            transition: all 0.8s ease-in-out 0.1s; }
+          body main.active .card-overflow .card-con .item-card.active .details-con {
+            height: 60%;
+            -webkit-border-radius: 0;
+                    border-radius: 0;
+            -webkit-border-top-left-radius: 12px;
+                    border-top-left-radius: 12px;
+            -webkit-border-top-right-radius: 12px;
+                    border-top-right-radius: 12px;
+            width: 100%;
+            -webkit-transition: all 0.8s ease-in-out;
+            -o-transition: all 0.8s ease-in-out;
+            transition: all 0.8s ease-in-out; }
